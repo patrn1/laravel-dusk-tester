@@ -14,7 +14,7 @@ return [
 
         'test_suite' => [
             // Name of the suite for browser tests (must be presented in 'phpunit.xml')
-            'name' => 'Browser Tests',
+            'name' => 'Browser',
         ],
 
         'screenshots' => [
@@ -34,12 +34,12 @@ return [
         // Stub file template (used for making tests 'stubs')
         'stub' => [
             'test' => [
-                // Path must be absolute
+                // Path must be absolute (override default stub file)
                 'path' => null
             ],
 
             'page' => [
-                // Path must be absolute
+                // Path must be absolute (override default stub file)
                 'path' => null
             ]
         ],
@@ -51,13 +51,13 @@ return [
 
         'test_suite' => [
             // Name of the suite for unit tests (must be presented in 'phpunit.xml')
-            'name' => 'Unit Tests',
+            'name' => 'Unit',
         ],
 
         // Stub file template (used for making tests 'stubs')
         'stub' => [
             'test' => [
-                // Path must be absolute
+                // Path must be absolute (override default stub file)
                 'path' => null
             ],
         ],

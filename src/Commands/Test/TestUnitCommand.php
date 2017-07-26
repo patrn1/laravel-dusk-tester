@@ -28,6 +28,6 @@ class TestUnitCommand extends AbstractTestCommand
      */
     protected function getTestsSuiteName(): string
     {
-        return (string) config('laravel-dusk-tester.unit.test_suite.name', 'Unit Tests');
+        return (string) config('laravel-dusk-tester.unit.test_suite.name', 'Unit');
     }
 }

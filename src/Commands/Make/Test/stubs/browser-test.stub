@@ -5,7 +5,7 @@ namespace DummyNamespace;
 use Exception;
 use Throwable;
 use Laravel\Dusk\Browser;
-use Tarampampam\LaravelDuskTester\Tests\AbstractDuskTestCase;
+use Tests\Browser\AbstractBrowserTestCase;
 
 /**
  * Class DummyClass
@@ -17,7 +17,7 @@ use Tarampampam\LaravelDuskTester\Tests\AbstractDuskTestCase;
  *
  * @group DummyClass
  */
-class DummyClass extends AbstractDuskTestCase
+class DummyClass extends AbstractBrowserTestCase
 {
     /**
      * Basic test.

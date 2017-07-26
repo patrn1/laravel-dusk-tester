@@ -4,7 +4,7 @@ namespace DummyNamespace;
 
 use Exception;
 use Throwable;
-use Tarampampam\LaravelDuskTester\Tests\AbstractUnitTestCase;
+use Tests\Unit\AbstractUnitTestCase;
 
 /**
  * Class DummyClass

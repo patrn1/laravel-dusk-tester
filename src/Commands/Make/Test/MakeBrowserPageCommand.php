@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\Make\Test;
+namespace Tarampampam\LaravelDuskTester\Commands\Make\Test;
 
 /**
  * Class MakeBrowserPageCommand

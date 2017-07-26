@@ -28,7 +28,7 @@ class TestBrowserCommand extends AbstractTestCommand
      */
     protected function getTestsSuiteName(): string
     {
-        return (string) config('laravel-dusk-tester.browser.test_suite.name', 'Browser Tests');
+        return (string) config('laravel-dusk-tester.browser.test_suite.name', 'Browser');
     }
 
     /**

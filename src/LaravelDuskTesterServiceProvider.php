@@ -2,10 +2,13 @@
 
 namespace Tarampampam\LaravelDuskTester;
 
-use App\Console\Commands\Make\Test\MakeBrowserPageCommand;
-use App\Console\Commands\Make\Test\MakeBrowserTestCommand;
-use App\Console\Commands\Make\Test\MakeUnitTestCommand;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use Tarampampam\LaravelDuskTester\Commands\Make\Test\MakeBrowserPageCommand;
+use Tarampampam\LaravelDuskTester\Commands\Make\Test\MakeBrowserTestCommand;
+use Tarampampam\LaravelDuskTester\Commands\Make\Test\MakeUnitTestCommand;
 use Tarampampam\LaravelDuskTester\Commands\Test\TestBrowserCommand;
 use Tarampampam\LaravelDuskTester\Commands\Test\TestUnitCommand;
 
@@ -18,6 +21,11 @@ class LaravelDuskTesterServiceProvider extends ServiceProvider
      * Path to the package config.
      */
     const CONFIG_PATH = __DIR__ . '/../config/laravel-dusk-tester.php';
+
+    /**
+     * Path to the basic tests classes.
+     */
+    const BASIC_TESTS_PATH = __DIR__ . '/../publishes/tests';
 
     /**
      * Bootstrap any application services.
@@ -50,18 +58,34 @@ class LaravelDuskTesterServiceProvider extends ServiceProvider
         );
 
         $this->publishes([
-            static::CONFIG_PATH => config_path('laravel-dusk-tester.php'),
+            realpath(static::CONFIG_PATH) => config_path('laravel-dusk-tester.php'),
         ], 'config');
+        $this->publishes($this->getTestsFilesPublishes(), 'tests');
+    }
 
-        $app_tests_directory     = base_path('tests');
-        $package_tests_directory = __DIR__ . '/Tests';
+    /**
+     * Get tests (any in static::BASIC_TESTS_PATH directory) files for publishes.
+     *
+     * @return string[]|array
+     */
+    protected function getTestsFilesPublishes(): array
+    {
+        static $result = [];
 
-        $this->publishes([
-            $package_tests_directory . '/bootstrap.php'                  => $app_tests_directory,
-            $package_tests_directory . '/AbstractDuskTestCase.php'       => $app_tests_directory,
-            $package_tests_directory . '/AbstractTestCase.php'           => $app_tests_directory,
-            $package_tests_directory . '/Browser/Pages/AbstractPage.php' => $app_tests_directory . '/Browser/Pages',
-            $package_tests_directory . '/Unit/AbstractUnitTestCase.php'  => $app_tests_directory . '/Unit',
-        ], 'tests');
+        if (empty($result)) {
+            $basic_tests_path    = realpath(static::BASIC_TESTS_PATH);
+            $iterator            = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($basic_tests_path));
+            $app_tests_directory = base_path('tests');
+
+            foreach ($iterator as $file) {
+                /** @var \SplFileInfo $file */
+                if ($file->isFile() && ($path = $file->getRealPath())) {
+                    $result[$path] = Str::replaceFirst($basic_tests_path, $app_tests_directory, $path);
+                }
+                $files[] = $file->getPathname();
+            }
+        }
+
+        return $result;
     }
 }

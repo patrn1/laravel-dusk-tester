@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\Make\Test;
+namespace Tarampampam\LaravelDuskTester\Commands\Make\Test;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Str;
@@ -32,6 +32,18 @@ abstract class AbstractMakeTestCommand extends GeneratorCommand
         $name = str_replace_first($this->rootNamespace(), '', $name);
 
         return $this->laravel->basePath() . '/tests' . str_replace('\\', '/', $name) . '.php';
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return bool|null
+     */
+    public function fire()
+    {
+        if (parent::fire() !== false) {
+            $this->info('Located here: ' . $this->getPath($this->qualifyClass($this->getNameInput())));
+        }
     }
 
     /**

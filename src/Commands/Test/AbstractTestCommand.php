@@ -2,9 +2,8 @@
 
 namespace Tarampampam\LaravelDuskTester\Commands\Test;
 
-use Illuminate\Console\Command;
 use Exception;
-use Illuminate\Support\Str;
+use Illuminate\Console\Command;
 use RuntimeException;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Process\Exception\ProcessFailedException;

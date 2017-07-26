@@ -3,7 +3,7 @@
 namespace DummyNamespace;
 
 use Laravel\Dusk\Browser;
-use Tarampampam\LaravelDuskTester\Tests\AbstractPage;
+use Tests\Browser\Pages\AbstractPage;
 
 /**
  * Class DummyClass
