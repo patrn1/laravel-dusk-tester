@@ -1,0 +1,58 @@
+<?php
+
+namespace DummyNamespace;
+
+use Exception;
+use Throwable;
+use Tarampampam\LaravelDuskTester\Tests\AbstractUnitTestCase;
+
+/**
+ * Class DummyClass
+ *
+ * @todo: Write test description.
+ *
+ * @see <https://phpunit.de/manual/5.7/en/writing-tests-for-phpunit.html>
+ * @see <https://laravel.com/docs/5.4/testing>
+ * @see <https://laravel.ru/docs/v5/testing>
+ *
+ * @group DummyClass
+ */
+class DummyClass extends AbstractUnitTestCase
+{
+    /**
+     * Tested object.
+     *
+     * @var null|mixed
+     */
+    protected $tested_object;
+
+    /**
+     * @inheritdoc
+     */
+    public function setUp()
+    {
+        parent::setUp();
+
+        $this->tested_object = new \stdClass;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function tearDown(): void
+    {
+        unset($this->tested_object);
+
+        parent::tearDown();
+    }
+
+    /**
+     * Test for {test_description}.
+     *
+     * @return void
+     */
+    public function testExample(): void
+    {
+        $this->assertInstanceOf(\stdClass::class, $this->tested_object);
+    }
+}

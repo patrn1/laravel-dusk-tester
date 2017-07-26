@@ -1,0 +1,64 @@
+<?php
+
+namespace DummyNamespace;
+
+use Laravel\Dusk\Browser;
+use Tarampampam\LaravelDuskTester\Tests\AbstractPage;
+
+/**
+ * Class DummyClass
+ *
+ * @todo: Write test description.
+ *
+ * @see   <https://laravel.com/docs/5.4/dusk#pages>
+ *
+ * @group DummyClass
+ */
+class DummyClass extends AbstractPage
+{
+    /**
+     * Get the URL for the page.
+     *
+     * @return string
+     */
+    public function url(): string
+    {
+        return 'http://put.page.uri/here';
+    }
+
+    /**
+     * Assert that the browser is on the page.
+     *
+     * @param  Browser $browser
+     *
+     * @return void
+     */
+    public function assert(Browser $browser): void
+    {
+        $browser->assertPathIs($this->url())
+                ->assertDontSee('Error');
+    }
+
+    /**
+     * Get the global element shortcuts for the site in format:
+     *
+     * <code>
+     * [
+     *   ..,
+     *   %dom_element_alias% => %element_css_selector%,
+     *   ..
+     * ]
+     * </code>
+     *
+     * @see <https://laravel.com/docs/5.4/dusk#shorthand-selectors>
+     * @see <http://www.cheetyr.com/css-selectors>
+     *
+     * @return string[]
+     */
+    public function elements(): array
+    {
+        return array_merge(parent::elements(), [
+            '@some-element' => 'element > .css_selector',
+        ]);
+    }
+}
