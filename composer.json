@@ -1,0 +1,24 @@
+{
+  "name": "tarampampam/laravel-dusk-tester",
+  "description": "Package for running dusk tests with Laravel",
+  "keywords": ["laravel", "dusk"],
+  "type": "library",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Tarampampam",
+      "email": "tarampampam@users.noreply.github.com",
+      "homepage": "https://github.com/tarampampam/"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/tarampampam/laravel-dusk-tester/issues",
+    "source": "https://github.com/tarampampam/laravel-dusk-tester"
+  },
+  "autoload": {
+    "psr-4": {
+      "Tarampampam\\LaravelDuskTester\\": "src"
+    }
+  }
+}
