@@ -1,7 +1,6 @@
 preset: laravel
 
 enabled:
-  - long_array_syntax
   - strict
   - align_double_arrow
   - dir_constant
