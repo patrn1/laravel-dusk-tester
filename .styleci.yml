@@ -17,6 +17,7 @@ enabled:
   - phpdoc_return_self_reference
   - align_equals
   - concat_with_spaces
+  - not_operator_with_space
 
 disabled:
   - unalign_equals
