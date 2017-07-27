@@ -32,7 +32,7 @@ class LaravelDuskTesterServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(): void
+    public function boot()
     {
         //
     }
@@ -42,7 +42,7 @@ class LaravelDuskTesterServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register(): void
+    public function register()
     {
         $this->commands([
             TestUnitCommand::class,

@@ -26,7 +26,7 @@ class TestBrowserCommand extends AbstractTestCommand
     /**
      * {@inheritdoc}
      */
-    public function handle(): void
+    public function handle()
     {
         // Makes directories
         $this->createScreenshotsDirectory();

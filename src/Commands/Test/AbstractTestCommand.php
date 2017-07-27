@@ -29,7 +29,7 @@ abstract class AbstractTestCommand extends Command
      *
      * @return void
      */
-    public function handle(): void
+    public function handle()
     {
         $process = (new ProcessBuilder)
             ->setTimeout(null)

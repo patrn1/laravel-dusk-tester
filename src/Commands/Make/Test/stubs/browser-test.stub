@@ -27,7 +27,7 @@ class DummyClass extends AbstractBrowserTestCase
      * @throws Exception
      * @throws Throwable
      */
-    public function testBasic(): void
+    public function testBasic()
     {
         $this->browse(function (Browser $browser) {
             //$browser->visit(new SomePage)

@@ -33,7 +33,7 @@ class DummyClass extends AbstractPage
      *
      * @return void
      */
-    public function assert(Browser $browser): void
+    public function assert(Browser $browser)
     {
         $browser->assertPathIs($this->url())
                 ->assertDontSee('Error');

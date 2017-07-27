@@ -29,7 +29,7 @@ class EnvironmentTest extends AbstractUnitTestCase
     /**
      * @inheritdoc
      */
-    public function tearDown(): void
+    public function tearDown()
     {
         unset($this->environment_object);
 

@@ -37,7 +37,7 @@ class DummyClass extends AbstractUnitTestCase
     /**
      * @inheritdoc
      */
-    public function tearDown(): void
+    public function tearDown()
     {
         unset($this->tested_object);
 
@@ -49,7 +49,7 @@ class DummyClass extends AbstractUnitTestCase
      *
      * @return void
      */
-    public function testExample(): void
+    public function testExample()
     {
         $this->assertInstanceOf(\stdClass::class, $this->tested_object);
     }
