@@ -18,9 +18,7 @@
     "laravel/dusk": "^1.1",
     "phpunit/phpunit": "^5.7"
   },
-  "require-dev": {
-    "friendsofphp/php-cs-fixer": "2.3.*"
-  },
+  "require-dev": {},
   "autoload": {
     "psr-4": {
       "Tarampampam\\LaravelDuskTester\\": "src"
@@ -39,8 +37,7 @@
     "source": "https://github.com/tarampampam/laravel-dusk-tester"
   },
   "scripts": {
-    "test": "./vendor/bin/phpunit",
-    "cs": "./vendor/bin/php-cs-fixer fix --verbose --show-progress=run-in --config ./.php_cs"
+    "test": "./vendor/bin/phpunit"
   },
   "extra": {
     "laravel": {

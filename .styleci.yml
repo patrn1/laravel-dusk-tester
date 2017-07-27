@@ -1,0 +1,60 @@
+preset: psr2
+
+enabled:
+  - long_array_syntax
+  - strict
+  - unalign_double_arrow
+  - binary_operator_spaces
+  - align_double_arrow
+  - align_equals
+  - blank_line_after_namespace
+  - blank_line_after_opening_tag
+  - blank_line_before_return
+  - declare_equal_normalize
+  - dir_constant
+  - encoding
+  - hash_to_slash_comment
+  - include
+  - unix_line_endings
+  - linebreak_after_opening_tag
+  - lowercase_constants
+  - lowercase_cast
+  - mb_str_functions
+  - method_separation
+  - no_blank_lines_after_phpdoc
+  - no_empty_phpdoc
+  - no_closing_tag
+  - no_multiline_whitespace_around_double_arrow
+  - no_trailing_comma_in_singleline_array
+  - no_short_echo_tag
+  - no_spaces_after_function_name
+  - no_whitespace_in_blank_line
+  - non_printable_character
+  - normalize_index_brace
+  - object_operator_without_whitespace
+  - ordered_class_elements
+  - phpdoc_add_missing_param_annotation
+  - phpdoc_align
+  - phpdoc_annotation_without_dot
+  - phpdoc_indent
+  - phpdoc_order
+  - phpdoc_separation
+  - phpdoc_types
+  - phpdoc_return_self_reference
+  - single_blank_line_at_eof
+  - single_blank_line_before_namespace
+  - single_line_after_imports
+  - single_quote
+  - space_after_semicolon
+  - standardize_not_equals
+  - ternary_operator_spaces
+  - trim_array_spaces
+  - method_visibility_required
+  - whitespace_after_comma_in_array
+
+disabled:
+  - no_unused_imports
+
+finder:
+  exclude:
+    - "tests"
