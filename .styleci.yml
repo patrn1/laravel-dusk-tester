@@ -1,6 +1,5 @@
-preset: psr4
-
 enabled:
+  - psr4
   - long_array_syntax
   - strict
   - unalign_double_arrow
