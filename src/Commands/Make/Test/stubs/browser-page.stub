@@ -8,7 +8,7 @@ use Tests\Browser\Pages\AbstractPage;
 /**
  * Class DummyClass
  *
- * @todo: Write test description.
+ * @todo  : Write test description.
  *
  * @see   <https://laravel.com/docs/5.4/dusk#pages>
  *

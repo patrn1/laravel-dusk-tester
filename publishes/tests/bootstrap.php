@@ -9,7 +9,6 @@ use Illuminate\Foundation\Application;
  * <?xml version="1.0" encoding="UTF-8"?>
  * <phpunit bootstrap="./tests/bootstrap.php" ...
  */
-
 require_once __DIR__ . '/../bootstrap/autoload.php';
 
 /** @var Application $app */

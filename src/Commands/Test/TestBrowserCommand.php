@@ -26,14 +26,6 @@ class TestBrowserCommand extends AbstractTestCommand
     /**
      * @inheritdoc
      */
-    protected function getTestsSuiteName(): string
-    {
-        return (string) config('laravel-dusk-tester.browser.test_suite.name', 'Browser');
-    }
-
-    /**
-     * @inheritdoc
-     */
     public function handle(): void
     {
         // Makes directories
@@ -125,5 +117,13 @@ class TestBrowserCommand extends AbstractTestCommand
         }
 
         return false;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function getTestsSuiteName(): string
+    {
+        return (string) config('laravel-dusk-tester.browser.test_suite.name', 'Browser');
     }
 }

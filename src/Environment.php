@@ -9,7 +9,6 @@ use Illuminate\Support\Str;
  */
 class Environment
 {
-
     /**
      * Return 'true' only if current environment is local|dev.
      *

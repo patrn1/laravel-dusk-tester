@@ -75,7 +75,6 @@ return [
         'config' => [
             // Path to the main 'phpunit.xml' config file
             'path' => base_path('phpunit.xml'),
-
         ],
 
     ],

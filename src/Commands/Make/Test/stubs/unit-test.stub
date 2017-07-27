@@ -2,18 +2,16 @@
 
 namespace DummyNamespace;
 
-use Exception;
-use Throwable;
 use Tests\Unit\AbstractUnitTestCase;
 
 /**
  * Class DummyClass
  *
- * @todo: Write test description.
+ * @todo  : Write test description.
  *
- * @see <https://phpunit.de/manual/5.7/en/writing-tests-for-phpunit.html>
- * @see <https://laravel.com/docs/5.4/testing>
- * @see <https://laravel.ru/docs/v5/testing>
+ * @see   <https://phpunit.de/manual/5.7/en/writing-tests-for-phpunit.html>
+ * @see   <https://laravel.com/docs/5.4/testing>
+ * @see   <https://laravel.ru/docs/v5/testing>
  *
  * @group DummyClass
  */

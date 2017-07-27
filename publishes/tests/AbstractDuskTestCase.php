@@ -19,19 +19,6 @@ abstract class AbstractDuskTestCase extends BaseTestCase
     use CreatesApplication;
 
     /**
-     * Prepare for Dusk test execution.
-     *
-     * @beforeClass
-     * @return void
-     */
-    public static function prepare()
-    {
-        if (Environment::isDevelopment()) {
-            static::startChromeDriver();
-        }
-    }
-
-    /**
      * @inheritdoc
      */
     public function setUp()
@@ -40,6 +27,20 @@ abstract class AbstractDuskTestCase extends BaseTestCase
 
         Browser::$storeScreenshotsAt = config('laravel-dusk-tester.browser.screenshots.path');
         Browser::$storeConsoleLogAt  = config('laravel-dusk-tester.browser.console_logs.path');
+    }
+
+    /**
+     * Prepare for Dusk test execution.
+     *
+     * @beforeClass
+     *
+     * @return void
+     */
+    public static function prepare()
+    {
+        if (Environment::isDevelopment()) {
+            static::startChromeDriver();
+        }
     }
 
     /**

@@ -21,9 +21,21 @@ abstract class AbstractMakeTestCommand extends GeneratorCommand
     protected $type = 'Test';
 
     /**
+     * Execute the console command.
+     *
+     * @return bool|null
+     */
+    public function fire()
+    {
+        if (parent::fire() !== false) {
+            $this->info('Located here: ' . $this->getPath($this->qualifyClass($this->getNameInput())));
+        }
+    }
+
+    /**
      * Get the destination class path.
      *
-     * @param  string $name
+     * @param string $name
      *
      * @return string
      */
@@ -35,15 +47,13 @@ abstract class AbstractMakeTestCommand extends GeneratorCommand
     }
 
     /**
-     * Execute the console command.
+     * Get the root namespace for the class.
      *
-     * @return bool|null
+     * @return string
      */
-    public function fire()
+    protected function rootNamespace()
     {
-        if (parent::fire() !== false) {
-            $this->info('Located here: ' . $this->getPath($this->qualifyClass($this->getNameInput())));
-        }
+        return 'Tests';
     }
 
     /**
@@ -80,16 +90,6 @@ abstract class AbstractMakeTestCommand extends GeneratorCommand
         }
 
         return trim($name);
-    }
-
-    /**
-     * Get the root namespace for the class.
-     *
-     * @return string
-     */
-    protected function rootNamespace()
-    {
-        return 'Tests';
     }
 
     /**
