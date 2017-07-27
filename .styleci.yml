@@ -16,9 +16,12 @@ enabled:
   - phpdoc_separation
   - phpdoc_return_self_reference
   - align_equals
+  - concat_with_spaces
 
 disabled:
   - unalign_equals
+  - phpdoc_annotation_without_dot
+  - concat_without_spaces
 
 finder:
   exclude:
