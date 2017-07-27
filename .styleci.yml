@@ -21,7 +21,6 @@ enabled:
 disabled:
   - unalign_equals
   - concat_without_spaces
-  - not_operator_with_space
 
 finder:
   exclude:
