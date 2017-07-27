@@ -28,6 +28,23 @@ class LaravelDuskTesterServiceProvider extends ServiceProvider
     const BASIC_TESTS_PATH = __DIR__ . '/../publishes/tests';
 
     /**
+     * Retrieve commands classes.
+     *
+     * @return string[]|array
+     */
+    public function getCommandsClasses(): array
+    {
+        return [
+            TestUnitCommand::class,
+            TestBrowserCommand::class,
+
+            MakeUnitTestCommand::class,
+            MakeBrowserTestCommand::class,
+            MakeBrowserPageCommand::class,
+        ];
+    }
+
+    /**
      * Bootstrap any application services.
      *
      * @return void
@@ -44,22 +61,14 @@ class LaravelDuskTesterServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->commands([
-            TestUnitCommand::class,
-            TestBrowserCommand::class,
+        $this->commands($this->getCommandsClasses());
 
-            MakeUnitTestCommand::class,
-            MakeBrowserTestCommand::class,
-            MakeBrowserPageCommand::class,
-        ]);
-
-        $this->mergeConfigFrom(
-            static::CONFIG_PATH, 'laravel-dusk-tester'
-        );
+        $this->mergeConfigFrom(static::CONFIG_PATH, 'laravel-dusk-tester');
 
         $this->publishes([
             realpath(static::CONFIG_PATH) => config_path('laravel-dusk-tester.php'),
         ], 'config');
+
         $this->publishes($this->getTestsFilesPublishes(), 'tests');
     }
 
