@@ -4,7 +4,6 @@ enabled:
   - long_array_syntax
   - strict
   - align_double_arrow
-  - align_equals
   - dir_constant
   - linebreak_after_opening_tag
   - mb_str_functions
