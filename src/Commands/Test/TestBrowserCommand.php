@@ -3,7 +3,7 @@
 namespace Tarampampam\LaravelDuskTester\Commands\Test;
 
 /**
- * Class TestBrowserCommand
+ * Class TestBrowserCommand.
  *
  * Command for starting browser tests.
  */
@@ -24,7 +24,7 @@ class TestBrowserCommand extends AbstractTestCommand
     protected $description = 'Start browser-tests';
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function handle(): void
     {
@@ -50,7 +50,7 @@ class TestBrowserCommand extends AbstractTestCommand
      */
     protected function createScreenshotsDirectory(): bool
     {
-        if (($path = $this->getScreenshotsDirectoryPath()) && !is_dir($path)) {
+        if (($path = $this->getScreenshotsDirectoryPath()) && ! is_dir($path)) {
             return $this->makeDirectoryWithGitignoreFile($path);
         }
 
@@ -74,7 +74,7 @@ class TestBrowserCommand extends AbstractTestCommand
      */
     protected function createConsoleLogsDirectory(): bool
     {
-        if (($path = $this->getConsoleLogsDirectoryPath()) && !is_dir($path)) {
+        if (($path = $this->getConsoleLogsDirectoryPath()) && ! is_dir($path)) {
             return $this->makeDirectoryWithGitignoreFile($path);
         }
 
@@ -120,7 +120,7 @@ class TestBrowserCommand extends AbstractTestCommand
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function getTestsSuiteName(): string
     {

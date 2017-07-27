@@ -3,7 +3,7 @@
 namespace Tarampampam\LaravelDuskTester\Commands\Test;
 
 /**
- * Class TestUnitCommand
+ * Class TestUnitCommand.
  *
  * Command for starting unit tests.
  */
@@ -24,7 +24,7 @@ class TestUnitCommand extends AbstractTestCommand
     protected $description = 'Start unit-tests';
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function getTestsSuiteName(): string
     {
