@@ -20,7 +20,6 @@ enabled:
 
 disabled:
   - unalign_equals
-  - phpdoc_annotation_without_dot
   - concat_without_spaces
 
 finder:
