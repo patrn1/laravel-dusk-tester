@@ -1,6 +1,6 @@
 # Laravel 5 dusk tester
 
-[![GitHub issues](https://img.shields.io/github/issues/tarampampam/laravel-dusk-tester.svg)](https://github.com/tarampampam/laravel-dusk-tester/issues) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/tarampampam/laravel-dusk-tester/master/LICENSE)
+[![GitHub license](https://styleci.io/repos/98423395/shield)](https://styleci.io/repos/98423395) [![GitHub issues](https://img.shields.io/github/issues/tarampampam/laravel-dusk-tester.svg?style=flat-square)](https://github.com/tarampampam/laravel-dusk-tester/issues) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/tarampampam/laravel-dusk-tester/master/LICENSE) 
 
 More useful creating and starting tests, including browser tests *(based on official [`laravel/dusk` package][laravel_dusk_package])*.
 
