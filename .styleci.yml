@@ -15,7 +15,12 @@ enabled:
   - phpdoc_order
   - phpdoc_separation
   - phpdoc_return_self_reference
+  - align_equals
+
+disabled:
+  - unalign_equals
 
 finder:
   exclude:
     - "tests"
+
