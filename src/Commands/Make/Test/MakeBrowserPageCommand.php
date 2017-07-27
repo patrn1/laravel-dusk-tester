@@ -3,7 +3,7 @@
 namespace Tarampampam\LaravelDuskTester\Commands\Make\Test;
 
 /**
- * Class MakeBrowserPageCommand
+ * Class MakeBrowserPageCommand.
  *
  * Создает page для browser тестов.
  */
@@ -39,7 +39,7 @@ class MakeBrowserPageCommand extends AbstractMakeTestCommand
     {
         $config = config('laravel-dusk-tester.browser.stub.page.path');
 
-        return !empty($config) ? $config : __DIR__ . '/stubs/browser-page.stub';
+        return ! empty($config) ? $config : __DIR__ . '/stubs/browser-page.stub';
     }
 
     /**

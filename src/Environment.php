@@ -5,7 +5,7 @@ namespace Tarampampam\LaravelDuskTester;
 use Illuminate\Support\Str;
 
 /**
- * Class Environment
+ * Class Environment.
  */
 class Environment
 {

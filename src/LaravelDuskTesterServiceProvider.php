@@ -2,18 +2,18 @@
 
 namespace Tarampampam\LaravelDuskTester;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
+use RecursiveDirectoryIterator;
+use Illuminate\Support\ServiceProvider;
+use Tarampampam\LaravelDuskTester\Commands\Test\TestUnitCommand;
+use Tarampampam\LaravelDuskTester\Commands\Test\TestBrowserCommand;
+use Tarampampam\LaravelDuskTester\Commands\Make\Test\MakeUnitTestCommand;
 use Tarampampam\LaravelDuskTester\Commands\Make\Test\MakeBrowserPageCommand;
 use Tarampampam\LaravelDuskTester\Commands\Make\Test\MakeBrowserTestCommand;
-use Tarampampam\LaravelDuskTester\Commands\Make\Test\MakeUnitTestCommand;
-use Tarampampam\LaravelDuskTester\Commands\Test\TestBrowserCommand;
-use Tarampampam\LaravelDuskTester\Commands\Test\TestUnitCommand;
 
 /**
- * Class LaravelDuskTesterServiceProvider
+ * Class LaravelDuskTesterServiceProvider.
  */
 class LaravelDuskTesterServiceProvider extends ServiceProvider
 {

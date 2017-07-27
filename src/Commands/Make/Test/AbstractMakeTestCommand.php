@@ -2,12 +2,12 @@
 
 namespace Tarampampam\LaravelDuskTester\Commands\Make\Test;
 
-use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Str;
+use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputArgument;
 
 /**
- * Class AbstractMakeTestCommand
+ * Class AbstractMakeTestCommand.
  *
  * Abstract command class for making tests templates from stubs.
  */
@@ -66,7 +66,7 @@ abstract class AbstractMakeTestCommand extends GeneratorCommand
         $name = $this->argument('name');
 
         // Try to convert class name to CamelCase
-        if (($parts = preg_split('~(\\\\|\/)~', $name)) && is_array($parts) && !empty($parts)) {
+        if (($parts = preg_split('~(\\\\|\/)~', $name)) && is_array($parts) && ! empty($parts)) {
             $last = (string) end($parts);
             $name = Str::replaceLast($last, Str::ucfirst(Str::camel($last)), $name);
         }
@@ -75,14 +75,14 @@ abstract class AbstractMakeTestCommand extends GeneratorCommand
 
         if ($type === 'test') {
             // If test name does not ends with 'test'
-            if (!Str::endsWith(Str::lower($name), 'test')) {
+            if (! Str::endsWith(Str::lower($name), 'test')) {
                 $name .= 'Test';
             } else {
                 $name = preg_replace('~test$~i', 'Test', $name);
             }
         } elseif ($type === 'page') {
             // And also for 'page'
-            if (!Str::endsWith(Str::lower($name), 'page')) {
+            if (! Str::endsWith(Str::lower($name), 'page')) {
                 $name .= 'Page';
             } else {
                 $name = preg_replace('~page$~i', 'Page', $name);

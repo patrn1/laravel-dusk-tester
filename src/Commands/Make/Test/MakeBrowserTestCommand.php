@@ -3,7 +3,7 @@
 namespace Tarampampam\LaravelDuskTester\Commands\Make\Test;
 
 /**
- * Class MakeBrowserTestCommand
+ * Class MakeBrowserTestCommand.
  *
  * Создает browser-тест.
  */
@@ -32,7 +32,7 @@ class MakeBrowserTestCommand extends AbstractMakeTestCommand
     {
         $config = config('laravel-dusk-tester.browser.stub.test.path');
 
-        return !empty($config) ? $config : __DIR__ . '/stubs/browser-test.stub';
+        return ! empty($config) ? $config : __DIR__ . '/stubs/browser-test.stub';
     }
 
     /**

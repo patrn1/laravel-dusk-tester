@@ -3,7 +3,7 @@
 namespace Tarampampam\LaravelDuskTester\Commands\Make\Test;
 
 /**
- * Class MakeUnitTestCommand
+ * Class MakeUnitTestCommand.
  *
  * Создает unit-тест.
  */
@@ -32,7 +32,7 @@ class MakeUnitTestCommand extends AbstractMakeTestCommand
     {
         $config = config('laravel-dusk-tester.unit.stub.test.path');
 
-        return !empty($config) ? $config : __DIR__ . '/stubs/unit-test.stub';
+        return ! empty($config) ? $config : __DIR__ . '/stubs/unit-test.stub';
     }
 
     /**

@@ -35,13 +35,13 @@ return [
         'stub' => [
             'test' => [
                 // Path must be absolute (override default stub file)
-                'path' => null
+                'path' => null,
             ],
 
             'page' => [
                 // Path must be absolute (override default stub file)
-                'path' => null
-            ]
+                'path' => null,
+            ],
         ],
 
     ],
@@ -58,7 +58,7 @@ return [
         'stub' => [
             'test' => [
                 // Path must be absolute (override default stub file)
-                'path' => null
+                'path' => null,
             ],
         ],
 
