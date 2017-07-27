@@ -1,12 +1,10 @@
 enabled:
-  - psr4
   - long_array_syntax
   - strict
   - unalign_double_arrow
   - binary_operator_spaces
   - align_double_arrow
   - align_equals
-  - blank_line_after_namespace
   - blank_line_after_opening_tag
   - blank_line_before_return
   - declare_equal_normalize
