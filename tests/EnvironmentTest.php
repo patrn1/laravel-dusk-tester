@@ -41,7 +41,7 @@ class EnvironmentTest extends AbstractUnitTestCase
      *
      * @return void
      */
-    public function testIsDevelopment(): void
+    public function testIsDevelopment()
     {
         $this->assertTrue(method_exists($this->environment_object, 'isDevelopment'));
     }
