@@ -3,7 +3,6 @@ preset: laravel
 enabled:
   - long_array_syntax
   - strict
-  - unalign_double_arrow
   - align_double_arrow
   - align_equals
   - dir_constant
