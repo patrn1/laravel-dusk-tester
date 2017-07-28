@@ -9,6 +9,8 @@ use Symfony\Component\Process\ProcessBuilder;
 use Tarampampam\LaravelDuskTester\Environment;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Process\Exception\ProcessFailedException;
+use Tarampampam\LaravelDuskTester\Events\TestsFailedEvent;
+use Tarampampam\LaravelDuskTester\Events\TestsSuccessEvent;
 
 /**
  * Class AbstractTestCommand.
@@ -31,29 +33,39 @@ abstract class AbstractTestCommand extends Command
      */
     public function handle()
     {
-        $process = (new ProcessBuilder)
-            ->setTimeout(null)
-            ->setPrefix($this->getPhpunitBinary())
-            ->setArguments($this->getPhpunitArguments())
-            ->add('--testsuite=' . $this->getTestsSuiteName())
-            ->getProcess();
-
         try {
-            $process->setTty(true);
-        } catch (RuntimeException $e) {
-            $this->warn('Warning: ' . $e->getMessage());
-        }
+            $process = (new ProcessBuilder)
+                ->setTimeout(null)
+                ->setPrefix($this->getPhpunitBinary())
+                ->setArguments($this->getPhpunitArguments())
+                ->add('--testsuite=' . $this->getTestsSuiteName())
+                ->getProcess();
 
-        // Run Process Asynchronously
-        $process->start();
+            try {
+                $process->setTty(true);
+            } catch (RuntimeException $e) {
+                $this->warn('Warning: ' . $e->getMessage());
+            }
 
-        // Read command output and write into console
-        $process->wait(function ($type, $line) {
-            $this->output->write($line);
-        });
+            // Run Process Asynchronously
+            $process->start();
 
-        if (! $process->isSuccessful()) {
-            throw new ProcessFailedException($process);
+            // Read command output and write into console
+            $process->wait(function ($type, $line) {
+                $this->output->write($line);
+            });
+
+            if ($process->isSuccessful()) {
+                event(new TestsSuccessEvent(
+                    sprintf('Tests suite %s completed successful', $this->getTestsSuiteName())
+                ));
+            } else {
+                throw new ProcessFailedException($process);
+            }
+        } catch (Exception $e) {
+            event(new TestsFailedEvent($e->getMessage(), $e->getCode(), $e->getLine()));
+
+            throw new Exception($e->getMessage(), $e->getCode(), $e);
         }
     }
 

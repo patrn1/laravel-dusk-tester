@@ -80,6 +80,15 @@ Pages for browser tests located in directory `./tests/Browser/Pages`.
 
 As with `make:unit` command you can specify additional path.
 
+### Events
+
+You can listen next events:
+
+ * `Tarampampam\LaravelDuskTester\Events\TestsFailedEvent`;
+ * `Tarampampam\LaravelDuskTester\Events\TestsSuccessEvent`.
+ 
+More information about this you can [find here](https://laravel.com/docs/5.4/events).
+
 ### License
 
 Laravel 5 dusk tester is open-sourced software licensed under the [MIT license](./LICENSE).
