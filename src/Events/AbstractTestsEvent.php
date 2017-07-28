@@ -25,9 +25,11 @@ abstract class AbstractTestsEvent
     /**
      * Create a new event instance.
      *
-     * @param mixed $message
+     * @param string      $message
+     * @param int|null    $code
+     * @param string|null $line
      */
-    public function __construct($message, ?int $code = null, ?string $line = null)
+    public function __construct($message, $code = null, $line = null)
     {
         $this->message = (string) $message;
         $this->code    = $code;
