@@ -3,11 +3,11 @@
 namespace Tarampampam\LaravelDuskTester\Commands\Test;
 
 use Exception;
-use Illuminate\Console\Command;
 use RuntimeException;
-use Symfony\Component\Console\Input\InputArgument;
+use Illuminate\Console\Command;
 use Symfony\Component\Process\ProcessBuilder;
 use Tarampampam\LaravelDuskTester\Environment;
+use Symfony\Component\Console\Input\InputArgument;
 use Tarampampam\LaravelDuskTester\Events\TestsFailedEvent;
 use Tarampampam\LaravelDuskTester\Events\TestsSuccessEvent;
 
@@ -97,7 +97,7 @@ abstract class AbstractTestCommand extends Command
         return array_filter(array_merge([
             '-c', $this->getPhpunitConfigPath(),
             '--no-coverage',
-            is_string($tests_group_name) && !empty($tests_group_name)
+            is_string($tests_group_name) && ! empty($tests_group_name)
                 ? '--group=' . $tests_group_name
                 : null,
             Environment::isDevelopment()
@@ -139,7 +139,7 @@ abstract class AbstractTestCommand extends Command
      */
     protected function clearDirectory(string $dir_path, array $files_extensions = []): bool
     {
-        if (is_dir($dir_path) && !empty($files_extensions)) {
+        if (is_dir($dir_path) && ! empty($files_extensions)) {
             $glob_pattern = $dir_path . DIRECTORY_SEPARATOR . '*.{' . implode(',', $files_extensions) . '}';
             foreach (glob($glob_pattern, GLOB_BRACE) as $file_path) {
                 try {
