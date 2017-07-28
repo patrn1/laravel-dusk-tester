@@ -3,14 +3,13 @@
 namespace Tarampampam\LaravelDuskTester\Commands\Test;
 
 use Exception;
-use RuntimeException;
 use Illuminate\Console\Command;
+use RuntimeException;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Process\ProcessBuilder;
 use Tarampampam\LaravelDuskTester\Environment;
-use Symfony\Component\Console\Input\InputArgument;
 use Tarampampam\LaravelDuskTester\Events\TestsFailedEvent;
 use Tarampampam\LaravelDuskTester\Events\TestsSuccessEvent;
-use Symfony\Component\Process\Exception\ProcessFailedException;
 
 /**
  * Class AbstractTestCommand.
@@ -44,23 +43,23 @@ abstract class AbstractTestCommand extends Command
             try {
                 $process->setTty(true);
             } catch (RuntimeException $e) {
-                $this->warn('Warning: ' . $e->getMessage());
+                $this->warn($e->getMessage());
             }
 
-            // Run Process Asynchronously
-            $process->start();
-
-            // Read command output and write into console
-            $process->wait(function ($type, $line) {
+            // Run Process
+            $process->run(function ($type, $line) {
                 $this->output->write($line);
             });
 
             if ($process->isSuccessful()) {
                 event(new TestsSuccessEvent(
-                    sprintf('Tests suite %s completed successful', $this->getTestsSuiteName())
+                    sprintf('Tests suite "%s" completed successful', $this->getTestsSuiteName())
                 ));
             } else {
-                throw new ProcessFailedException($process);
+                event(new TestsFailedEvent(
+                    sprintf('Tests suite "%s" failed!', $this->getTestsSuiteName()),
+                    $process->getExitCode()
+                ));
             }
         } catch (Exception $e) {
             event(new TestsFailedEvent($e->getMessage(), $e->getCode(), $e->getLine()));
@@ -98,7 +97,7 @@ abstract class AbstractTestCommand extends Command
         return array_filter(array_merge([
             '-c', $this->getPhpunitConfigPath(),
             '--no-coverage',
-            is_string($tests_group_name) && ! empty($tests_group_name)
+            is_string($tests_group_name) && !empty($tests_group_name)
                 ? '--group=' . $tests_group_name
                 : null,
             Environment::isDevelopment()
@@ -140,7 +139,7 @@ abstract class AbstractTestCommand extends Command
      */
     protected function clearDirectory(string $dir_path, array $files_extensions = []): bool
     {
-        if (is_dir($dir_path) && ! empty($files_extensions)) {
+        if (is_dir($dir_path) && !empty($files_extensions)) {
             $glob_pattern = $dir_path . DIRECTORY_SEPARATOR . '*.{' . implode(',', $files_extensions) . '}';
             foreach (glob($glob_pattern, GLOB_BRACE) as $file_path) {
                 try {
