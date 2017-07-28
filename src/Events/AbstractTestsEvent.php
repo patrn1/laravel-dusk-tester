@@ -24,6 +24,8 @@ abstract class AbstractTestsEvent
 
     /**
      * Create a new event instance.
+     *
+     * @param mixed $message
      */
     public function __construct($message, ?int $code = null, ?string $line = null)
     {

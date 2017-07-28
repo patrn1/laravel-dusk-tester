@@ -6,7 +6,7 @@ use Laravel\Dusk\Browser;
 use Laravel\Dusk\Page as BasePageTest;
 
 /**
- * Class AbstractPage
+ * Class AbstractPage.
  *
  * Abstract class for all browser pages.
  */

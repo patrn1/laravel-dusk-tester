@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 
 /**
- * Class AbstractUnitTestCase
+ * Class AbstractUnitTestCase.
  */
 abstract class AbstractUnitTestCase extends TestCase
 {

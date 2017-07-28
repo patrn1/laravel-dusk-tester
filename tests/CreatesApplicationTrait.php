@@ -5,7 +5,7 @@ namespace Tarampampam\LaravelDuskTester\Tests;
 use Illuminate\Contracts\Console\Kernel;
 
 /**
- * Trait CreatesApplicationTrait
+ * Trait CreatesApplicationTrait.
  */
 trait CreatesApplicationTrait
 {

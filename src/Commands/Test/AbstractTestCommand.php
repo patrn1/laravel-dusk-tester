@@ -8,9 +8,9 @@ use Illuminate\Console\Command;
 use Symfony\Component\Process\ProcessBuilder;
 use Tarampampam\LaravelDuskTester\Environment;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Process\Exception\ProcessFailedException;
 use Tarampampam\LaravelDuskTester\Events\TestsFailedEvent;
 use Tarampampam\LaravelDuskTester\Events\TestsSuccessEvent;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 /**
  * Class AbstractTestCommand.

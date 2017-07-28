@@ -2,15 +2,15 @@
 
 namespace Tests;
 
-use Facebook\WebDriver\Chrome\ChromeOptions;
-use Facebook\WebDriver\Remote\DesiredCapabilities;
-use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Laravel\Dusk\Browser;
 use Laravel\Dusk\TestCase as BaseTestCase;
+use Facebook\WebDriver\Chrome\ChromeOptions;
+use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Tarampampam\LaravelDuskTester\Environment;
+use Facebook\WebDriver\Remote\DesiredCapabilities;
 
 /**
- * Class AbstractDuskTestCase
+ * Class AbstractDuskTestCase.
  *
  * Abstract class for browser tests.
  */
@@ -19,7 +19,7 @@ abstract class AbstractDuskTestCase extends BaseTestCase
     use CreatesApplication;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function setUp()
     {

@@ -5,7 +5,7 @@ namespace Tarampampam\LaravelDuskTester\Tests;
 use Tarampampam\LaravelDuskTester\Environment;
 
 /**
- * Class EnvironmentTest
+ * Class EnvironmentTest.
  */
 class EnvironmentTest extends AbstractUnitTestCase
 {
@@ -17,7 +17,7 @@ class EnvironmentTest extends AbstractUnitTestCase
     protected $environment_object;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function setUp()
     {
@@ -27,7 +27,7 @@ class EnvironmentTest extends AbstractUnitTestCase
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function tearDown()
     {

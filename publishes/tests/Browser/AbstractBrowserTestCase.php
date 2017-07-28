@@ -5,7 +5,7 @@ namespace Tests\Browser;
 use Tests\AbstractDuskTestCase;
 
 /**
- * Class AbstractBrowserTestCase
+ * Class AbstractBrowserTestCase.
  */
 abstract class AbstractBrowserTestCase extends AbstractDuskTestCase
 {

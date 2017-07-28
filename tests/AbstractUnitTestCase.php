@@ -5,7 +5,7 @@ namespace Tarampampam\LaravelDuskTester\Tests;
 use PHPUnit_Framework_TestCase;
 
 /**
- * Class AbstractUnitTestCase
+ * Class AbstractUnitTestCase.
  */
 abstract class AbstractUnitTestCase extends PHPUnit_Framework_TestCase
 {
