@@ -10,6 +10,7 @@ use Tarampampam\LaravelDuskTester\Environment;
 use Symfony\Component\Console\Input\InputArgument;
 use Tarampampam\LaravelDuskTester\Events\TestsFailedEvent;
 use Tarampampam\LaravelDuskTester\Events\TestsSuccessEvent;
+use Tarampampam\LaravelDuskTester\Exceptions\TestsFailedException;
 
 /**
  * Class AbstractTestCommand.
@@ -29,8 +30,9 @@ abstract class AbstractTestCommand extends Command
      * Execute the console command.
      *
      * @throws Exception
+     * @throws TestsFailedException
      *
-     * @return int|null
+     * @return void
      */
     public function handle()
     {
@@ -57,22 +59,16 @@ abstract class AbstractTestCommand extends Command
                 event(new TestsSuccessEvent(
                     sprintf('Tests suite "%s" completed successful', $this->getTestsSuiteName())
                 ));
-
-                // Zero code - if success
-                return 0;
             } else {
-                event(new TestsFailedEvent(
+                throw new Exception(
                     sprintf('Tests suite "%s" failed!', $this->getTestsSuiteName()),
                     $process->getExitCode()
-                ));
-
-                // Return non-zero exit code
-                return 1;
+                );
             }
         } catch (Exception $e) {
             event(new TestsFailedEvent($e->getMessage(), $e->getCode(), $e->getLine()));
 
-            throw new Exception($e->getMessage(), $e->getCode(), $e);
+            throw new TestsFailedException($e->getMessage(), $e->getCode(), $e);
         }
     }
 
