@@ -28,8 +28,9 @@ abstract class AbstractTestCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return int|null
      * @throws Exception
+     *
+     * @return int|null
      */
     public function handle()
     {
@@ -195,4 +196,3 @@ abstract class AbstractTestCommand extends Command
         ];
     }
 }
-
