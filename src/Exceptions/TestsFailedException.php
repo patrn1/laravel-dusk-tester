@@ -5,7 +5,7 @@ namespace Tarampampam\LaravelDuskTester\Exceptions;
 use Exception;
 
 /**
- * Class TestsFailedException
+ * Class TestsFailedException.
  */
 class TestsFailedException extends Exception
 {
