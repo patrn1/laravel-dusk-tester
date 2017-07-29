@@ -28,7 +28,8 @@ abstract class AbstractTestCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return void
+     * @return int|null
+     * @throws Exception
      */
     public function handle()
     {
@@ -55,11 +56,17 @@ abstract class AbstractTestCommand extends Command
                 event(new TestsSuccessEvent(
                     sprintf('Tests suite "%s" completed successful', $this->getTestsSuiteName())
                 ));
+
+                // Zero code - if success
+                return 0;
             } else {
                 event(new TestsFailedEvent(
                     sprintf('Tests suite "%s" failed!', $this->getTestsSuiteName()),
                     $process->getExitCode()
                 ));
+
+                // Return non-zero exit code
+                return 1;
             }
         } catch (Exception $e) {
             event(new TestsFailedEvent($e->getMessage(), $e->getCode(), $e->getLine()));
@@ -188,3 +195,4 @@ abstract class AbstractTestCommand extends Command
         ];
     }
 }
+
